@@ -1,3 +1,8 @@
+spring.application.name=user-service
+management.endpoints.web.exposure.include=*
+spring.config.import=optional:configserver:http://localhost:8888
+
+
 #postgres
 spring.datasource.url=jdbc:postgresql://localhost:5432/practise-app
 spring.datasource.username=postgres
@@ -8,9 +13,6 @@ spring.datasource.driver-class-name=org.postgresql.Driver
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
-
-
-spring.docker.compose.enabled=false
 
 eureka.instance.prefer-ip-address=true
 eureka.client.fetch-registry=true
