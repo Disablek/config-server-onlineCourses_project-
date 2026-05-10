@@ -1,6 +1,4 @@
 spring:
-  application:
-    name: api-gateway
   config:
     import: optional:configserver:http://config-server:8888
   cloud:
@@ -8,27 +6,6 @@ spring:
       filter:
         weight-calculator:
           enabled: false
-      routes:
-        - id: auth-service
-          uri: lb://auth-service
-          predicates:
-            - Path=/api/auth
-            - Path=/api/auth/**
-        - id: user-service
-          uri: lb://user-service
-          predicates:
-            - Path=/api/users
-            - Path=/api/users/**
-        - id: employee-service
-          uri: lb://employee-service
-          predicates:
-            - Path=/api/employees
-            - Path=/api/employees/**
-        - id: datatable-service
-          uri: lb://datatable-service
-          predicates:
-            - Path=/api/datatables
-            - Path=/api/datatables/**
       globalcors:
         add-to-simple-url-handler-mapping: true
         cors-configurations:
